@@ -17,12 +17,13 @@ public class ListClientExampleTest {
 	/**
 	 * Test method for {@link ListClientExample}.
 	 */
-	@Test
-	public void testListClientExample() {
-		ListClientExample lce = new ListClientExample();
-		@SuppressWarnings("rawtypes")
-		List list = lce.getList();
-		assertThat(list, instanceOf(ArrayList.class) );
-	}
+    @Test
+    public void testListClientExample() {
+        ListClientExample lce = new ListClientExample();
+        @SuppressWarnings("rawtypes")
+        List list = lce.getList();
+        System.out.println("Test is running!");
+        assertThat(list, instanceOf(ArrayList.class) );
+    }
 
 }
