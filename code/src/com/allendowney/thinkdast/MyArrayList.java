@@ -12,8 +12,8 @@ import java.util.ListIterator;
  *
  */
 public class MyArrayList<T> implements List<T> {
-	int size;                    // keeps track of the number of elements
-	private T[] array;           // stores the elements
+	int size; // keeps track of the number of elements
+	private T[] array; // stores the elements
 
 	/**
 	 *
@@ -21,7 +21,7 @@ public class MyArrayList<T> implements List<T> {
 	@SuppressWarnings("unchecked")
 	public MyArrayList() {
 		// You can't instantiate an array of T[], but you can instantiate an
-		// array of Object and then typecast it.  Details at
+		// array of Object and then typecast it. Details at
 		// http://www.ibm.com/developerworks/java/library/j-jtp01255/index.html
 		array = (T[]) new Object[10];
 		size = 0;
@@ -44,8 +44,20 @@ public class MyArrayList<T> implements List<T> {
 
 	@Override
 	public boolean add(T element) {
-		// TODO: FILL THIS IN!
-		return false;
+		if (size == array.length) {
+			// resize the array
+			@SuppressWarnings("unchecked")
+			T[] newArray = (T[]) new Object[array.length * 2];
+			// copy the elements
+			for (int i = 0; i < size; i++) {
+				newArray[i] = array[i];
+			}
+			array = newArray;
+		}
+		// add element to the array
+		array[size] = element;
+		size++;
+		return true;
 	}
 
 	@Override
@@ -53,21 +65,28 @@ public class MyArrayList<T> implements List<T> {
 		if (index < 0 || index > size) {
 			throw new IndexOutOfBoundsException();
 		}
-		// add the element to get the resizing
-		add(element);
-
-		// shift the elements
-		for (int i=size-1; i>index; i--) {
-			array[i] = array[i-1];
+		// resize if needed
+		if (size == array.length) {
+			@SuppressWarnings("unchecked")
+			T[] newArray = (T[]) new Object[array.length * 2];
+			for (int i = 0; i < size; i++) {
+				newArray[i] = array[i];
+			}
+			array = newArray;
 		}
-		// put the new one in the right place
+		// shift elements to the right
+		for (int i = size; i > index; i--) {
+			array[i] = array[i - 1];
+		}
+		// insert the new element
 		array[index] = element;
+		size++;
 	}
 
 	@Override
 	public boolean addAll(Collection<? extends T> collection) {
 		boolean flag = true;
-		for (T element: collection) {
+		for (T element : collection) {
 			flag &= add(element);
 		}
 		return flag;
@@ -92,7 +111,7 @@ public class MyArrayList<T> implements List<T> {
 
 	@Override
 	public boolean containsAll(Collection<?> collection) {
-		for (Object element: collection) {
+		for (Object element : collection) {
 			if (!contains(element)) {
 				return false;
 			}
@@ -110,11 +129,16 @@ public class MyArrayList<T> implements List<T> {
 
 	@Override
 	public int indexOf(Object target) {
-		// TODO: FILL THIS IN!
+		for (int i = 0; i < size; i++) {
+			if (equals(target, array[i])) {
+				return i;
+			}
+		}
 		return -1;
 	}
 
-	/** Checks whether an element of the array is the target.
+	/**
+	 * Checks whether an element of the array is the target.
 	 *
 	 * Handles the special case that the target is null.
 	 *
@@ -145,7 +169,7 @@ public class MyArrayList<T> implements List<T> {
 	@Override
 	public int lastIndexOf(Object target) {
 		// see notes on indexOf
-		for (int i = size-1; i>=0; i--) {
+		for (int i = size - 1; i >= 0; i--) {
 			if (equals(target, array[i])) {
 				return i;
 			}
@@ -181,14 +205,19 @@ public class MyArrayList<T> implements List<T> {
 
 	@Override
 	public T remove(int index) {
-		// TODO: FILL THIS IN!
-		return null;
+		T temp = array[index];
+		for (int i = index; i < size - 1; i++) {
+			array[i] = array[i + 1];
+		}
+		array[size - 1] = null;
+		size--;
+		return temp;
 	}
 
 	@Override
 	public boolean removeAll(Collection<?> collection) {
 		boolean flag = true;
-		for (Object obj: collection) {
+		for (Object obj : collection) {
 			flag &= remove(obj);
 		}
 		return flag;
@@ -199,10 +228,19 @@ public class MyArrayList<T> implements List<T> {
 		throw new UnsupportedOperationException();
 	}
 
+	// method replaces an existing element but not an unused element within a list
 	@Override
 	public T set(int index, T element) {
-		// TODO: FILL THIS IN!
-		return null;
+		// checks if within bounds
+		if (index >= size || index < 0) {
+			return null;
+		}
+		// Store old Value
+		T oldVal = get(index);
+		// replace old value with new value
+		array[index] = element;
+		// return old value
+		return oldVal;
 	}
 
 	@Override
