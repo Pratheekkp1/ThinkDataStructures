@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="Mac" name="com.allendowney.thinkdast.MyArrayListTest" skipped="0" tests="20" time="0.049" timestamp="2025-06-14T23:15:09">
+<testsuite errors="0" failures="3" hostname="Mac" name="com.allendowney.thinkdast.MyLinkedListTest" skipped="0" tests="20" time="0.056" timestamp="2025-06-17T04:34:03">
   <properties>
     <property name="java.vendor" value="Homebrew" />
     <property name="sun.java.launcher" value="SUN_STANDARD" />
@@ -72,7 +72,7 @@
     <property name="java.vendor.url" value="https://github.com/Homebrew/homebrew-core/issues" />
     <property name="java.vm.vendor" value="Homebrew" />
     <property name="java.runtime.name" value="OpenJDK Runtime Environment" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner com.allendowney.thinkdast.MyArrayListTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.OutErrSummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/pratheek/Desktop/Personal projects/Learning/ThinkDataStructures/code/junit/TEST-com.allendowney.thinkdast.MyArrayListTest.xml crashfile=/Users/pratheek/Desktop/Personal projects/Learning/ThinkDataStructures/code/junitvmwatcher14568190443407020367.properties propsfile=/Users/pratheek/Desktop/Personal projects/Learning/ThinkDataStructures/code/junit18014681193036229452.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner com.allendowney.thinkdast.MyLinkedListTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.OutErrSummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/pratheek/Desktop/Personal projects/Learning/ThinkDataStructures/code/junit/TEST-com.allendowney.thinkdast.MyLinkedListTest.xml crashfile=/Users/pratheek/Desktop/Personal projects/Learning/ThinkDataStructures/code/junitvmwatcher17545063485234848701.properties propsfile=/Users/pratheek/Desktop/Personal projects/Learning/ThinkDataStructures/code/junit10907930856104261201.properties" />
     <property name="java.class.path" value="/Users/pratheek/Desktop/Personal projects/Learning/ThinkDataStructures/code/bin:/Users/pratheek/Desktop/Personal projects/Learning/ThinkDataStructures/code/lib/jedis-2.8.0.jar:/Users/pratheek/Desktop/Personal projects/Learning/ThinkDataStructures/code/lib/jsoup-1.8.3.jar:/Users/pratheek/Desktop/Personal projects/Learning/ThinkDataStructures/code/lib/junit-4.12.jar:/Users/pratheek/Desktop/Personal projects/Learning/ThinkDataStructures/code/lib/hamcrest-core-1.3.jar:/Users/pratheek/Desktop/Personal projects/Learning/ThinkDataStructures/code/lib/jcommon-1.0.23.jar:/Users/pratheek/Desktop/Personal projects/Learning/ThinkDataStructures/code/lib/jfreechart-1.0.19.jar:/Users/pratheek/Desktop/Personal projects/Learning/ThinkDataStructures/code/lib/servlet.jar:/Users/pratheek/Desktop/Personal projects/Learning/ThinkDataStructures/code/lib/ant-junit.jar:/Users/pratheek/Desktop/Personal projects/Learning/ThinkDataStructures/code/lib/commons-math3-3.6.jar:/Users/pratheek/Desktop/Personal projects/Learning/ThinkDataStructures/code/lib/hamcrest-library-1.3.jar:/opt/homebrew/Cellar/ant/1.10.15_1/libexec/lib/ant-launcher.jar:/opt/homebrew/Cellar/ant/1.10.15_1/libexec/lib/ant.jar:/opt/homebrew/Cellar/ant/1.10.15_1/libexec/lib/ant-junit.jar:/opt/homebrew/Cellar/ant/1.10.15_1/libexec/lib/ant-junit4.jar" />
     <property name="ant.version" value="Apache Ant(TM) version 1.10.15 compiled on August 25 2024" />
     <property name="native.encoding" value="UTF-8" />
@@ -104,29 +104,53 @@
     <property name="source" value="1.8" />
     <property name="file.encoding" value="UTF-8" />
     <property name="java.specification.version" value="24" />
-    <property name="ant.project.invoked-targets" value="MyArrayListTest" />
+    <property name="ant.project.invoked-targets" value="MyLinkedListTest" />
     <property name="java.vendor.version" value="Homebrew" />
   </properties>
-  <testcase classname="com.allendowney.thinkdast.MyArrayListTest" name="testToArray" time="0.002" />
-  <testcase classname="com.allendowney.thinkdast.MyArrayListTest" name="testAddIntT" time="0.0" />
-  <testcase classname="com.allendowney.thinkdast.MyArrayListTest" name="testGet" time="0.0" />
-  <testcase classname="com.allendowney.thinkdast.MyArrayListTest" name="testSet" time="0.0" />
-  <testcase classname="com.allendowney.thinkdast.MyArrayListTest" name="testAddAllCollectionOfQextendsT" time="0.0" />
-  <testcase classname="com.allendowney.thinkdast.MyArrayListTest" name="testClear" time="0.0" />
-  <testcase classname="com.allendowney.thinkdast.MyArrayListTest" name="testAddT" time="0.0" />
-  <testcase classname="com.allendowney.thinkdast.MyArrayListTest" name="testSize" time="0.0" />
-  <testcase classname="com.allendowney.thinkdast.MyArrayListTest" name="testLastIndexOf" time="0.0" />
-  <testcase classname="com.allendowney.thinkdast.MyArrayListTest" name="testContainsAll" time="0.0" />
-  <testcase classname="com.allendowney.thinkdast.MyArrayListTest" name="testRemoveObject" time="0.0" />
-  <testcase classname="com.allendowney.thinkdast.MyArrayListTest" name="testContains" time="0.0" />
-  <testcase classname="com.allendowney.thinkdast.MyArrayListTest" name="testIndexOfNull" time="0.0" />
-  <testcase classname="com.allendowney.thinkdast.MyArrayListTest" name="testIndexOf" time="0.0" />
-  <testcase classname="com.allendowney.thinkdast.MyArrayListTest" name="testMyList" time="0.0" />
-  <testcase classname="com.allendowney.thinkdast.MyArrayListTest" name="testIsEmpty" time="0.0" />
-  <testcase classname="com.allendowney.thinkdast.MyArrayListTest" name="testIterator" time="0.0" />
-  <testcase classname="com.allendowney.thinkdast.MyArrayListTest" name="testRemoveAll" time="0.0" />
-  <testcase classname="com.allendowney.thinkdast.MyArrayListTest" name="testRemoveInt" time="0.0" />
-  <testcase classname="com.allendowney.thinkdast.MyArrayListTest" name="testSubList" time="0.0" />
+  <testcase classname="com.allendowney.thinkdast.MyLinkedListTest" name="testToArray" time="0.001" />
+  <testcase classname="com.allendowney.thinkdast.MyLinkedListTest" name="testAddIntT" time="0.0" />
+  <testcase classname="com.allendowney.thinkdast.MyLinkedListTest" name="testGet" time="0.0" />
+  <testcase classname="com.allendowney.thinkdast.MyLinkedListTest" name="testSet" time="0.0" />
+  <testcase classname="com.allendowney.thinkdast.MyLinkedListTest" name="testAddAllCollectionOfQextendsT" time="0.0" />
+  <testcase classname="com.allendowney.thinkdast.MyLinkedListTest" name="testClear" time="0.0" />
+  <testcase classname="com.allendowney.thinkdast.MyLinkedListTest" name="testAddT" time="0.001" />
+  <testcase classname="com.allendowney.thinkdast.MyLinkedListTest" name="testSize" time="0.0" />
+  <testcase classname="com.allendowney.thinkdast.MyLinkedListTest" name="testLastIndexOf" time="0.0" />
+  <testcase classname="com.allendowney.thinkdast.MyLinkedListTest" name="testContainsAll" time="0.0" />
+  <testcase classname="com.allendowney.thinkdast.MyLinkedListTest" name="testRemoveObject" time="0.003">
+    <failure message="&#xa;Expected: is &lt;2&gt;&#xa;     but: was &lt;3&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: 
+Expected: is &lt;2&gt;
+     but: was &lt;3&gt;
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+	at com.allendowney.thinkdast.MyArrayListTest.testRemoveObject(MyArrayListTest.java:196)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+</failure>
+  </testcase>
+  <testcase classname="com.allendowney.thinkdast.MyLinkedListTest" name="testContains" time="0.0" />
+  <testcase classname="com.allendowney.thinkdast.MyLinkedListTest" name="testIndexOfNull" time="0.0" />
+  <testcase classname="com.allendowney.thinkdast.MyLinkedListTest" name="testIndexOf" time="0.001" />
+  <testcase classname="com.allendowney.thinkdast.MyLinkedListTest" name="testMyList" time="0.0" />
+  <testcase classname="com.allendowney.thinkdast.MyLinkedListTest" name="testIsEmpty" time="0.0" />
+  <testcase classname="com.allendowney.thinkdast.MyLinkedListTest" name="testIterator" time="0.0" />
+  <testcase classname="com.allendowney.thinkdast.MyLinkedListTest" name="testRemoveAll" time="0.0">
+    <failure message="&#xa;Expected: is &lt;0&gt;&#xa;     but: was &lt;3&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: 
+Expected: is &lt;0&gt;
+     but: was &lt;3&gt;
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+	at com.allendowney.thinkdast.MyArrayListTest.testRemoveAll(MyArrayListTest.java:235)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+</failure>
+  </testcase>
+  <testcase classname="com.allendowney.thinkdast.MyLinkedListTest" name="testRemoveInt" time="0.001">
+    <failure message="&#xa;Expected: is &lt;2&gt;&#xa;     but: was null" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: 
+Expected: is &lt;2&gt;
+     but: was null
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+	at com.allendowney.thinkdast.MyArrayListTest.testRemoveInt(MyArrayListTest.java:224)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+</failure>
+  </testcase>
+  <testcase classname="com.allendowney.thinkdast.MyLinkedListTest" name="testSubList" time="0.0" />
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

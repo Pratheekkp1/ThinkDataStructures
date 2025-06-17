@@ -44,17 +44,13 @@ public class MyArrayList<T> implements List<T> {
 
 	@Override
 	public boolean add(T element) {
-		if (size == array.length) {
-			// resize the array
+		if (size >= array.length) {
+			// make a bigger array and copy over the elements
 			@SuppressWarnings("unchecked")
-			T[] newArray = (T[]) new Object[array.length * 2];
-			// copy the elements
-			for (int i = 0; i < size; i++) {
-				newArray[i] = array[i];
-			}
-			array = newArray;
+			T[] bigger = (T[]) new Object[array.length * 2];
+			System.arraycopy(array, 0, bigger, 0, array.length);
+			array = bigger;
 		}
-		// add element to the array
 		array[size] = element;
 		size++;
 		return true;
@@ -65,22 +61,15 @@ public class MyArrayList<T> implements List<T> {
 		if (index < 0 || index > size) {
 			throw new IndexOutOfBoundsException();
 		}
-		// resize if needed
-		if (size == array.length) {
-			@SuppressWarnings("unchecked")
-			T[] newArray = (T[]) new Object[array.length * 2];
-			for (int i = 0; i < size; i++) {
-				newArray[i] = array[i];
-			}
-			array = newArray;
-		}
-		// shift elements to the right
-		for (int i = size; i > index; i--) {
+		// add the element to get the resizing
+		add(element);
+
+		// shift the elements
+		for (int i = size - 1; i > index; i--) {
 			array[i] = array[i - 1];
 		}
-		// insert the new element
+		// put the new one in the right place
 		array[index] = element;
-		size++;
 	}
 
 	@Override
@@ -205,13 +194,12 @@ public class MyArrayList<T> implements List<T> {
 
 	@Override
 	public T remove(int index) {
-		T temp = array[index];
+		T element = get(index);
 		for (int i = index; i < size - 1; i++) {
 			array[i] = array[i + 1];
 		}
-		array[size - 1] = null;
 		size--;
-		return temp;
+		return element;
 	}
 
 	@Override
@@ -228,19 +216,12 @@ public class MyArrayList<T> implements List<T> {
 		throw new UnsupportedOperationException();
 	}
 
-	// method replaces an existing element but not an unused element within a list
 	@Override
 	public T set(int index, T element) {
-		// checks if within bounds
-		if (index >= size || index < 0) {
-			return null;
-		}
-		// Store old Value
-		T oldVal = get(index);
-		// replace old value with new value
+		// no need to check index; get will do it for us
+		T old = get(index);
 		array[index] = element;
-		// return old value
-		return oldVal;
+		return old;
 	}
 
 	@Override
