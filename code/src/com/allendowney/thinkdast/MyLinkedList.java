@@ -89,12 +89,10 @@ public class MyLinkedList<E> implements List<E> {
 			throw new IndexOutOfBoundsException();
 		}
 		if (index == 0) {
-			Node newNode = new Node(element, head);
-			head = newNode;
+			head = new Node(element, head);
 		} else {
-			Node prev = getNode(index - 1);
-			Node newNode = new Node(element, prev.next);
-			prev.next = newNode;
+			Node node = getNode(index - 1);
+			node.next = new Node(element, node.next);
 		}
 		size++;
 	}
@@ -231,8 +229,20 @@ public class MyLinkedList<E> implements List<E> {
 
 	@Override
 	public E remove(int index) {
-		// TODO: FILL THIS IN!
-		return null;
+		if (index < 0 || index >= size) {
+			throw new IndexOutOfBoundsException();
+		}
+		Node removed;
+		if (index == 0) {
+			removed = head;
+			head = head.next;
+		} else {
+			Node prev = getNode(index - 1);
+			removed = prev.next;
+			prev.next = removed.next;
+		}
+		size--;
+		return removed.data;
 	}
 
 	@Override
